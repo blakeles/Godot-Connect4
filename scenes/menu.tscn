@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://divdh1rlijnod"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_gmq4l"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_gmq4l")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_top = 128.0
+offset_right = 576.0
+offset_bottom = 1024.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="1-P" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "🔴 1-Player 🔴"
+
+[node name="2-P" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "🔵🔴 2-Player 🔵🔴"
+
+[node name="Exit" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Exit"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/1-P" to="." method="_on_1p_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/1-P" to="." method="_on_p_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/2-P" to="." method="_on_p_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/2-P" to="." method="_on_2p_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

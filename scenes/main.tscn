@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://ca2ubn51ogil"]
+
+[ext_resource type="PackedScene" uid="uid://cplk8sepfqyqh" path="res://scenes/column.tscn" id="1_cnwx7"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_t8j22"]
+[ext_resource type="Texture2D" uid="uid://u8vjw8hoiybv" path="res://assets/BackBoard.png" id="2_8hfui"]
+[ext_resource type="Script" path="res://scripts/GUI.gd" id="2_g1lff"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_t8j22")
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_g1lff")
+
+[node name="CenterContainer" type="CenterContainer" parent="GUI"]
+layout_mode = 0
+offset_top = 200.0
+offset_right = 576.0
+offset_bottom = 264.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/CenterContainer"]
+layout_mode = 2
+
+[node name="Exit" type="Button" parent="GUI/CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "EXIT"
+
+[node name="Restart" type="Button" parent="GUI/CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "RESTART"
+
+[node name="Backboard" type="Sprite2D" parent="."]
+modulate = Color(0.211765, 0.239216, 0.290196, 1)
+position = Vector2(290, 549)
+scale = Vector2(1.03, 1.03)
+texture = ExtResource("2_8hfui")
+
+[node name="Columns" type="Node2D" parent="."]
+position = Vector2(283, 549)
+
+[node name="Column1" parent="Columns" instance=ExtResource("1_cnwx7")]
+position = Vector2(-193, 201)
+
+[node name="Column2" parent="Columns" instance=ExtResource("1_cnwx7")]
+position = Vector2(-113, 201)
+
+[node name="Column3" parent="Columns" instance=ExtResource("1_cnwx7")]
+position = Vector2(-33, 201)
+
+[node name="Column4" parent="Columns" instance=ExtResource("1_cnwx7")]
+position = Vector2(47, 201)
+
+[node name="Column5" parent="Columns" instance=ExtResource("1_cnwx7")]
+position = Vector2(127, 201)
+
+[node name="Column6" parent="Columns" instance=ExtResource("1_cnwx7")]
+position = Vector2(207, 201)
+
+[connection signal="pressed" from="GUI/CenterContainer/HBoxContainer/Exit" to="GUI" method="_on_exit_pressed"]
+[connection signal="pressed" from="GUI/CenterContainer/HBoxContainer/Restart" to="GUI" method="_on_restart_pressed"]

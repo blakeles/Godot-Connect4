@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctydium547xpd"]
+
+[ext_resource type="Texture2D" uid="uid://c1ba7pdjlf2u4" path="res://assets/Circle.png" id="1_24jiw"]
+[ext_resource type="Script" path="res://scripts/circle.gd" id="1_lxtcx"]
+
+[node name="Circle" type="Node2D"]
+modulate = Color(0.129412, 0.14902, 0.180392, 1)
+script = ExtResource("1_lxtcx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_24jiw")

@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://cplk8sepfqyqh"]
+
+[ext_resource type="PackedScene" uid="uid://ctydium547xpd" path="res://scenes/circle.tscn" id="1_pou5n"]
+[ext_resource type="Script" path="res://scripts/column.gd" id="1_pqvk1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8k6o8"]
+size = Vector2(78, 476)
+
+[node name="Column" type="Node2D"]
+script = ExtResource("1_pqvk1")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, -200)
+shape = SubResource("RectangleShape2D_8k6o8")
+
+[node name="Circle1" parent="." instance=ExtResource("1_pou5n")]
+
+[node name="Circle2" parent="." instance=ExtResource("1_pou5n")]
+position = Vector2(0, -80)
+
+[node name="Circle3" parent="." instance=ExtResource("1_pou5n")]
+position = Vector2(0, -160)
+
+[node name="Circle4" parent="." instance=ExtResource("1_pou5n")]
+position = Vector2(0, -240)
+
+[node name="Circle5" parent="." instance=ExtResource("1_pou5n")]
+position = Vector2(0, -320)
+
+[node name="Circle6" parent="." instance=ExtResource("1_pou5n")]
+position = Vector2(0, -400)
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
